@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+
+$link-color: red;
+
+// import original bootstrap
+@import "twitter/bootstrap";
