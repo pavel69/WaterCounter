@@ -1,0 +1,41 @@
+<div class="show">
+
+<p class="top1">Согласовано ЕИРЦ</p>
+<h1>Ведомость показаний квартирных приборов учета воды</h1>
+<h2>за период с <%= l @counter.prev_date.to_date, :format => :long %> по <%= l @counter.date.to_date, :format => :long %></h2>
+<p>Плательщик:  Фатеева И. И. телефон: 338-5428</p>
+<p>Проживающий по адресу: г.Москва, ул.Островитянова 16-2-75
+</p>
+<p class="date1">Дата: <%= l @counter.date.to_date, :format => :long %></p>
+
+<table>
+  <tr><th colspan="3">Показания счетчика холодной воды</th><th colspan="3">Показания счетчика горячей воды</th></tr>
+  <tr>
+    <th>На начало периода</th>
+    <th>На конец периода</th>
+    <th>Расход за период</th>
+    <th>На начало периода</th>
+    <th>На конец периода</th>
+    <th>Расход за период</th>
+  </tr>
+  <tr>
+    <td><%= @counter.prev_cold %> м<i>3</i></td>
+    <td><%= @counter.cold %> м<i>3</i></td>
+    <td><%= @counter.diff_cold %> м<i>3</i></td>
+    <td><%= @counter.prev_warm %> м<i>3</i></td>
+    <td><%= @counter.warm %> м<i>3</i></td>
+    <td><%= @counter.diff_warm %> м<i>3</i></td>
+  </tr>
+</table>
+
+
+<div class="signature">
+  <p class="l">Представитель ЕИРЦ _______________/_____________/</p>
+  <p class="r">Плательщик _________________/ Фатеева И. И. /</p>
+</div>
+
+
+<%= link_to 'Edit', edit_counter_path(@counter) %> |
+<%= link_to 'Back', counters_path %>
+
+</div>

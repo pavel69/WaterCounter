@@ -1,0 +1,32 @@
+<h1>Listing counters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th class="list_warm">Warm</th>
+      <th class="list_cold">Cold</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @counters.each do |counter| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td><%= counter.date %></td>
+        <td class="list_warm"><%= counter.warm %></td>
+        <td class="list_cold"><%= counter.cold %></td>
+        <td><%= link_to 'Show', counter %></td>
+        <td><%= link_to 'Edit', edit_counter_path(counter) %></td>
+        <td><%= link_to 'Destroy', counter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+<%= link_to 'New Counter', new_counter_path %>

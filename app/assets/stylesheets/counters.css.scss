@@ -1,0 +1,109 @@
+// Place all the styles related to the Counters controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  font: 1em/1em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+.counters {
+  table {
+    border-collapse: collapse;
+  }
+
+  table tr td {
+    padding: 5px;
+    vertical-align: top;
+  }
+
+  .list_warm {
+    color: red;
+  }
+
+  .list_cold {
+    color: darkblue;
+  }
+
+  .list_actions {
+    font-size: x-small;
+    text-align: right;
+    padding-left: 1em;
+  }
+
+  .list_line_even {
+    background: #e0f8f8;
+  }
+
+  .list_line_odd {
+    background: #f8b0f8;
+  }
+
+  .show {
+
+    table
+    {
+      border: 1px solid #333;
+      border-collapse:collapse;
+      margin: 2em 0 2em 0;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #333;
+      padding: 1em;
+      text-align: center;
+
+    }
+
+    .top1 {
+      text-align: right;
+      width: 100;
+      padding-right: 5em;
+      font-size: 0.8em;
+    }
+
+    .date1 {
+      text-align: right;
+      padding-right: 5em;
+    }
+
+    h1 {
+      font-size: 1.5em;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 1em;
+      font-weight: normal;
+      text-align: center;
+      margin-bottom: 3em;
+
+    }
+
+    i { font-style: normal; font-size: xx-small; vertical-align: super }
+
+    .signature { width: 100%;  font-size: 90%; border: 1px solid red; padding: 0; }
+
+    .signature .l { width: 49.5%;
+      margin: 0;
+      float: left;
+      border: 1px solid blue;
+
+    }
+    .signature .r { width: 49.5%;
+      margin: 0;
+      float: right;
+      border: 1px solid blue;
+      text-align: right
+    }
+
+    .signature:after {
+      content:"";
+      display:block;
+      clear:both;
+    }
+
+  }
+
+}
