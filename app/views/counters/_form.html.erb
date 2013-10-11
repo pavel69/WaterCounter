@@ -1,29 +1,45 @@
-<%= form_for(@counter) do |f| %>
-  <% if @counter.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@counter.errors.count, "error") %> prohibited this counter from being saved:</h2>
+<div class="row-fluid">
+  <div class="span4 well">
+    <%= form_for(@counter, :html => {:class => "form1-horizontal"}) do |f| %>
+      <% if @counter.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@counter.errors.count, "error") %> prohibited this counter from being saved:</h2>
 
-      <ul>
-      <% @counter.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+          <ul>
+          <% @counter.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <fieldset>
+          <legend>Member Form</legend>
+          <div class="form-group">
+            <%= f.label :date %>
+            <%= f.text_field :date, :class => "form-control datepicker", :value => Time.now.strftime('%d.%m.%Y') %>
+            <!--%= f.date_select :date %-->
+          </div>
 
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
+          <div class="form-group">
+            <%= f.label :warm %>
+              <%= f.number_field :warm, :class => "form-control" %>
+          </div>
+
+
+          <div class="form-group">
+            <%= f.label :cold %>
+             <%= f.number_field :cold, :class => "form-control" %>
+          </div>
+
+
+      <div class="form1-actions">
+        <%= f.submit :class => 'btn btn-primary' %>
+      </div>
+          </fieldset>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :warm %><br>
-    <%= f.number_field :warm %>
-  </div>
-  <div class="field">
-    <%= f.label :cold %><br>
-    <%= f.number_field :cold %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+
+<script>
+    $('#counter_date').datepicker({format: 'dd.mm.yyyy', language: 'ru'});
+</script>
