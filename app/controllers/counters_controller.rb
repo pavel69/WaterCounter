@@ -4,7 +4,7 @@ class CountersController < ApplicationController
   # GET /counters
   # GET /counters.json
   def index
-    @counters = Counter.all
+    @counters = Counter.all.order("date desc")
   end
 
   # GET /counters/1
