@@ -5,6 +5,8 @@ class Counter < ActiveRecord::Base
   attr_reader :diff_warm
   attr_reader :diff_cold
 
+  validates :warm, :cold, presence: true
+
   def self.prev_record_test(date)
     where("date < ?",  date).order("date").last
   end
