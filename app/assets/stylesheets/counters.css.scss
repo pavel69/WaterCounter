@@ -5,15 +5,7 @@
 
 .counters {
 
-  .list_actions {
-    font-size: x-small;
-    text-align: right;
-    padding-left: 1em;
-  }
-
-  input#counter_cold {width: 15em;}
-  input#counter_warm {width: 15em;}
-  input#counter_date {width: 15em;}
+  .control-group { margin-bottom: 1em; }
 
   .counters-list {
 
