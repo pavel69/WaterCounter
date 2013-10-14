@@ -1,11 +1,14 @@
 <div class="row">
-  <div class="col-md-8">
-    <%= simple_form_for(@counter, html: {class: 'well form-horizontal' }) do |f| %>
+  <div class="col1-md-8">
+    <%= simple_form_for(@counter, wrapper: :bootstrap3_horizontal,
+                        defaults: {right_column_html: {class: "col-lg-3 col-md-3"},
+                        label_html: {class: "col-lg-2 col-md-2"} },
+                        html: {class: 'well form-horizontal', role: "form" }) do |f| %>
 
         <%= f.error_notification %>
 
         <legend>Member Form</legend>
-        <%= f.input :date %>
+        <%= f.input :date, as: :string, input_html: { value: Time.now.strftime('%d.%m.%Y'), data: {behaviour: "datepicker"} } %>
         <%= f.input :warm %>
         <%= f.input :cold %>
 

@@ -19,5 +19,7 @@ ready = ->
     -> $(this).find('.btn-block').fadeOut(250)
   )
 
+  $('[data-behaviour~=datepicker]').datepicker({format: 'dd.mm.yyyy', language: 'ru'});
+
 $(document).ready(ready)
 $(document).on('page:load', ready)
