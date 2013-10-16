@@ -1,0 +1,15 @@
+ru:
+  activerecord:
+    models:
+      counter:
+        one: показания
+        other: показания
+    attributes:
+         counter:
+           warm: Горячая
+
+  helpers:
+    submit:
+      create: Новые %{model}
+      submit: Сохранить %{model}
+      update: Сохранить %{model}

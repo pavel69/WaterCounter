@@ -6,8 +6,8 @@
   <thead>
     <tr>
       <th>Дата</th>
-      <th class="warm">Горячая</th>
-      <th class="cold">Холодная</th>
+      <th class="warm"><%= Counter.human_attribute_name("warm") %></th>
+      <th class="cold"><%= Counter.human_attribute_name("cold") %></th>
       <th></th>
     </tr>
   </thead>
@@ -25,7 +25,7 @@
           <div class="btn-block">
             <%= link_to 'Квитанция', counter, :class => "btn btn-info btn-xs show-doc" %>
             <%= link_to 'Править', edit_counter_path(counter), :class => "btn btn-default btn-xs" %>
-            <%= link_to 'Удалить', counter, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default btn-xs" %>
+            <%= link_to 'Удалить', counter, method: :delete, data: { confirm: 'Вы уверены?' }, :class => "btn btn-default btn-xs" %>
           </div>
         </td>
       </tr>

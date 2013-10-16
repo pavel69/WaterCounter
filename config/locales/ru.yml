@@ -163,10 +163,10 @@ ru:
   helpers:
     select:
       prompt: ! 'Выберите: '
-    submit:
-      create: Создать %{model}
-      submit: Сохранить %{model}
-      update: Сохранить %{model}
+#    submit:
+#      create: Создать %{model}
+#      submit: Сохранить %{model}
+#      update: Сохранить %{model}
   number:
     currency:
       format:

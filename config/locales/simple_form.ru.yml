@@ -9,7 +9,7 @@ ru:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Some errors were found, please take a look:'
+      default_message: '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Обратите внимание, при сохранении возникли ошибки:'
 
     # Labels and hints examples
     # labels:
@@ -28,3 +28,5 @@ ru:
     labels:
       counter:
         date: 'Дата'
+        warm1: 'Горячая'
+        cold: 'Холодная'

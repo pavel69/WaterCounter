@@ -7,7 +7,7 @@
 
         <%= f.error_notification %>
 
-        <legend>Member Form</legend>
+        <legend>Показания счетчиков</legend>
         <%= f.input :date, as: :string, input_html: { value: Time.now.strftime('%d.%m.%Y'), data: {behaviour: "datepicker"} } %>
         <%= f.input :warm %>
         <%= f.input :cold %>
