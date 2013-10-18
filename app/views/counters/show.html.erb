@@ -2,7 +2,7 @@
 
 <p class="top1">Согласовано ЕИРЦ</p>
 <h1>Ведомость показаний квартирных приборов учета воды</h1>
-<h2>за период с <%= l @counter.prev_date.to_date, :format => :long %> по <%= l @counter.date.to_date, :format => :long %></h2>
+<h2>за период с <%= l @counter.prev_counter.date.to_date, :format => :long %> по <%= l @counter.date.to_date, :format => :long %></h2>
 <p>Плательщик:  Фатеева И. И. телефон: 338-5428</p>
 <p>Проживающий по адресу: г.Москва, ул.Островитянова 16-2-75
 </p>
@@ -19,12 +19,12 @@
     <th>Расход за период</th>
   </tr>
   <tr>
-    <td><%= @counter.prev_cold %> м<i>3</i></td>
+    <td><%= @counter.prev_counter.cold %> м<i>3</i></td>
     <td><%= @counter.cold %> м<i>3</i></td>
-    <td><%= @counter.diff_cold %> м<i>3</i></td>
-    <td><%= @counter.prev_warm %> м<i>3</i></td>
+    <td><%= @counter.cold_consumption %> м<i>3</i></td>
+    <td><%= @counter.prev_counter.warm %> м<i>3</i></td>
     <td><%= @counter.warm %> м<i>3</i></td>
-    <td><%= @counter.diff_warm %> м<i>3</i></td>
+    <td><%= @counter.warm_consumption %> м<i>3</i></td>
   </tr>
 </table>
 
