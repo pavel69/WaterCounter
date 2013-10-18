@@ -1,13 +1,9 @@
 class CalculateConsumption < ActiveRecord::Migration
   def up
     Counter.all.each do |counter|
-      x = Counter.prev_record(counter.date)
-      #x = Counter.where('date < ?',  counter.date).order('date').last
+      x = counter.prev_record
 
-      unless x.nil?
-        counter.update_attributes(prev_id: x.id, warm_consumption: (counter.warm - x.warm), cold_consumption: (counter.cold - x.cold))
-      end
-
+      counter.update_attributes(prev_id: x.id, warm_consumption: (counter.warm - x.warm), cold_consumption: (counter.cold - x.cold)) if !x.nil?
     end
   end
 

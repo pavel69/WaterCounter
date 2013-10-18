@@ -7,10 +7,10 @@ class Counter < ActiveRecord::Base
 
   validates :date, :warm, :cold, presence: true
 
-  scope :last_n_days, lambda { |days| where('updated < ?' , days) }
+  scope :earlier_than, lambda { |date| where('date < ?',  date).order("date") }
 
-  def z
-    puts 'sssss'
+  def prev_record
+	Counter.earlier_than(date).last
   end
 
   def self.prev_record_test(date)
