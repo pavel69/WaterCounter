@@ -7,6 +7,12 @@ class Counter < ActiveRecord::Base
 
   validates :date, :warm, :cold, presence: true
 
+  scope :last_n_days, lambda { |days| where('updated < ?' , days) }
+
+  def z
+    puts 'sssss'
+  end
+
   def self.prev_record_test(date)
     where("date < ?",  date).order("date").last
   end
@@ -18,5 +24,13 @@ class Counter < ActiveRecord::Base
     @prev_cold = @x.cold
     @diff_warm     = warm - @prev_warm
     @diff_cold     = cold - @prev_cold
- end
+  end
+
+  #has_many :replies, :class_name => 'Micropost',
+  #         :foreign_key => "in_reply_to",
+  #         :inverse_of => :replied_post
+  #belongs_to :replied_post, :class_name => 'Micropost',
+  #           :foreign_key => "in_reply_to",
+  #           :inverse_of => :replies
+
 end

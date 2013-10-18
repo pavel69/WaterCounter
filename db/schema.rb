@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130929075134) do
+ActiveRecord::Schema.define(version: 20131018044101) do
 
   create_table "counters", force: true do |t|
     t.date     "date"
@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(version: 20130929075134) do
     t.integer  "cold"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "prev_id"
+    t.integer  "warm_consumption"
+    t.integer  "cold_consumption"
   end
+
+  add_index "counters", ["date"], name: "index_counters_on_date", unique: true
 
 end

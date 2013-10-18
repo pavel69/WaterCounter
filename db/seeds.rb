@@ -8,6 +8,7 @@
 
 Counter.delete_all
 # . . .
+Counter.create(date: '2010-01-01', warm: 0, cold: 0)
 Counter.create(date: '2013-01-01', warm: 12, cold: 14)
 Counter.create(date: '2013-02-01', warm: 13, cold: 15)
 Counter.create(date: '2013-03-01', warm: 14, cold: 16)
