@@ -5,10 +5,12 @@ class CounterTest < ActiveSupport::TestCase
   #   assert true
   # end
 
-  test "find" do
-    @counter = Counter.find(2);
+  test "Create new Counter test" do
+    c = Counter.new;
 
-    puts @counter.date
-    @zz = Counter.all :conditions => {['date <= ?', @counter.date]}
+    assert c.invalid?
+    
+    
+    assert c.valid?
   end
 end
