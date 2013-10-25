@@ -31,7 +31,7 @@ class Counter < ActiveRecord::Base
 
 	def validate_calculations
     if prev_id.nil?
-			errors.add(:date, t('activerecord.validation.message1'))
+			errors.add(:date, I18n.t('activerecord.validation.message1'))
 		else
 			errors.add(:warm, I18n.t('activerecord.validation.message2')%{p1: self.prev_counter.warm}) if warm_consumption <= 0
       errors.add(:cold, I18n.t('activerecord.validation.message2')%{p1: self.prev_counter.cold}) if cold_consumption <= 0
