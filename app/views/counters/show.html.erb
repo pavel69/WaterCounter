@@ -35,7 +35,9 @@
 </div>
 
 
-<%= link_to 'Edit', edit_counter_path(@counter) %> |
-<%= link_to 'Back', counters_path %>
+<ul class="pager">
+    <li><%= link_to 'Back', counters_path %></li>
+    <li><%= link_to 'Edit', edit_counter_path(@counter) %></li>
+</ul>
 
 </div>
