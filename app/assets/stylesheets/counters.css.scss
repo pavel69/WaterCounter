@@ -69,26 +69,35 @@
 
     i { font-style: normal; font-size: xx-small; vertical-align: super }
 
-    .signature { width: 100%;  font-size: 90%; border: 1px solid red; padding: 0; }
+    .signature {
+      width: 100%;
+      font-size: 90%;
+      padding: 0;
 
-    .signature .l { width: 49.5%;
-      margin: 0;
-      float: left;
-      border: 1px solid blue;
+      .l {
+        width: 49.5%;
+        margin: 0;
+        float: left;
+      }
 
-    }
-    .signature .r { width: 49.5%;
-      margin: 0;
-      float: right;
-      border: 1px solid blue;
-      text-align: right
+      .r {
+        width: 49.5%;
+        margin: 0;
+        float: right;
+        text-align: right
+      }
+
+      &:after {
+        content:"";
+        display:block;
+        clear:both;
+      }
     }
 
-    .signature:after {
-      content:"";
-      display:block;
-      clear:both;
+    @media print {
+      .pager { display: none }
     }
+
 
   }
 

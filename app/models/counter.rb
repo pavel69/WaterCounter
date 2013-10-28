@@ -29,6 +29,21 @@ class Counter < ActiveRecord::Base
     end    
   end
 
+  def diff_consumption
+    if self.prev_counter.nil?
+      {
+          warm: nil,
+          cold: nil
+      }
+    else
+      {
+          warm: (self.warm_consumption||0) - (self.prev_counter.warm_consumption||0),
+          cold: (self.cold_consumption||0) - (self.prev_counter.cold_consumption||0)
+      }
+    end
+
+  end
+
 	def validate_calculations
     if prev_id.nil?
 			errors.add(:date, I18n.t('activerecord.validation.message1'))

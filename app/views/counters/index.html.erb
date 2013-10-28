@@ -5,7 +5,7 @@
 <table class="counters-list table table-striped">
   <thead>
     <tr>
-      <th>Дата</th>
+      <th><%= Counter.human_attribute_name("date") %></th>
       <th class="warm"><%= Counter.human_attribute_name("warm") %></th>
       <th class="cold"><%= Counter.human_attribute_name("cold") %></th>
       <th></th>
@@ -18,8 +18,15 @@
       <tr class="overlay">
         <td class="date"><%= l counter.date.to_date, :format => :long %></td>
 
-        <td class="warm"><%= counter.warm %></td>
-        <td class="cold"><%= counter.cold %></td>
+        <%
+           dc = counter.diff_consumption
+
+             wu = (dc[:warm]||0) > 0 ? '&uarr;'.html_safe : '&darr;'.html_safe
+             cu = (dc[:warm]||0) > 0 ? '&darr;'.html_safe : '&uarr;'.html_safe
+        %>
+
+        <td class="warm"><%= counter.warm %> (<%= counter.warm_consumption %><%= wu %>)</td>
+        <td class="cold"><%= counter.cold %> (<%= counter.cold_consumption %><%= cu %>)</td>
 
         <td class="b">
           <div class="btn-block">
