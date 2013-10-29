@@ -1,3 +1,9 @@
+r00:
+  id: 0
+  date: 2010-12-14
+  cold: 0
+  warm: 0
+
 r01:
   date: 2010-12-15
   cold: 0

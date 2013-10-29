@@ -26,6 +26,8 @@ class Counter < ActiveRecord::Base
       self.prev_id = x.id
       self.warm_consumption = self.warm - x.warm
       self.cold_consumption = self.cold - x.cold
+			self.prev_warm_consumption = x.warm_consumption
+			self.prev_cold_consumption = x.cold_consumption
     end    
   end
 
@@ -36,6 +38,14 @@ class Counter < ActiveRecord::Base
 			errors.add(:warm, I18n.t('activerecord.validation.message2')%{p1: self.prev_counter.warm}) if warm_consumption <= 0
       errors.add(:cold, I18n.t('activerecord.validation.message2')%{p1: self.prev_counter.cold}) if cold_consumption <= 0
 		end
+	end
+
+	def self.show_index
+		joins(:prev_counter)
+			.select('counters.*
+								, prev_counters_counters.warm_consumption as prev_warm_consumption
+								, prev_counters_counters.cold_consumption as prev_cold_consumption')
+			.order('counters.date desc')
 	end
 
   def show
