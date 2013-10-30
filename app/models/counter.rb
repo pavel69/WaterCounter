@@ -28,22 +28,11 @@ class Counter < ActiveRecord::Base
       self.cold_consumption = self.cold - x.cold
 			self.prev_warm_consumption = x.warm_consumption
 			self.prev_cold_consumption = x.cold_consumption
-    end    
-  end
 
-  def diff_consumption
-    if self.prev_counter.nil?
-      {
-          warm: nil,
-          cold: nil
-      }
-    else
-      {
-          warm: (self.warm_consumption||0) - (self.prev_counter.warm_consumption||0),
-          cold: (self.cold_consumption||0) - (self.prev_counter.cold_consumption||0)
-      }
+      return true
     end
 
+    false
   end
 
 	def validate_calculations

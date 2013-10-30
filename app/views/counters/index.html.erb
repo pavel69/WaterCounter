@@ -19,14 +19,12 @@
         <td class="date"><%= l counter.date.to_date, :format => :long %></td>
 
         <%
-           dc = counter.diff_consumption
-
-             wu = (dc[:warm]||0) > 0 ? '&uarr;'.html_safe : '&darr;'.html_safe
-             cu = (dc[:warm]||0) > 0 ? '&darr;'.html_safe : '&uarr;'.html_safe
+             wclass = counter.warm_consumption > counter.prev_warm_consumption ? 'more' : 'less'
+             cclass = counter.cold_consumption > counter.prev_cold_consumption ? 'more' : 'less'
         %>
 
-        <td class="warm"><%= counter.warm %> (<%= counter.warm_consumption %><%= wu %>)</td>
-        <td class="cold"><%= counter.cold %> (<%= counter.cold_consumption %><%= cu %>)</td>
+        <td class="warm"><%= counter.warm %> <span class="diff <%= wclass %>"><%= counter.warm_consumption %></span></td>
+        <td class="cold"><%= counter.cold %> <span class="diff <%= cclass %>"><%= counter.cold_consumption %></span></td>
 
         <td class="b">
           <div class="btn-block">

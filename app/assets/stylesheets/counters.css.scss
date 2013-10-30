@@ -17,6 +17,27 @@
     th.cold { color: darkblue; }
     td.b { text-align: left; padding-left: 3em; }
 
+    .diff {
+      padding-left: 1em;
+      font-size: 80%;
+    }
+
+    .more {
+      color: orange;
+      &:after {
+        content:"↑";
+      }
+    }
+
+    .less {
+      color: lightgreen;
+      &:after {
+        content:"↓";
+
+      }
+
+    }
+
     .show-doc {
       margin-right: 2em;
       margin-left: 2em;
