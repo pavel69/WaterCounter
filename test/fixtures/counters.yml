@@ -1,8 +1,12 @@
 r00:
-  id: 0
+  id: 1
   date: 2010-12-14
   cold: 0
   warm: 0
+  warm_consumption: 0
+  cold_consumption: 0
+  prev_warm_consumption: 0
+  prev_cold_consumption: 0
 
 r01:
   date: 2010-12-15
