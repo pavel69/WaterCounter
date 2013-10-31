@@ -35,6 +35,8 @@ gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
 
 gem 'simple_form'
 
+gem "highcharts-rails", "~> 3.0.7"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
