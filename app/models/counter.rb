@@ -22,6 +22,8 @@ class Counter < ActiveRecord::Base
   def recalc
     x = find_prev_record
 
+    self.year = self.date.year
+
     unless x.nil?
       self.prev_id = x.id
       self.warm_consumption = self.warm - x.warm

@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20131018052628) do
     t.integer  "cold_consumption"
     t.integer  "prev_warm_consumption"
     t.integer  "prev_cold_consumption"
+    t.integer  "year"
   end
 
   add_index "counters", ["date"], name: "index_counters_on_date", unique: true
