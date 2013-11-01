@@ -16,5 +16,6 @@
 //= require twitter/bootstrap
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.ru.js
+//= require highcharts
 //= require_tree .
 
