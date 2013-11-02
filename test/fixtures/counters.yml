@@ -7,6 +7,7 @@ r00:
   cold_consumption: 0
   prev_warm_consumption: 0
   prev_cold_consumption: 0
+  year: 2010
 
 r01:
   id: 2

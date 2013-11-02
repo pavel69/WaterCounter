@@ -6,6 +6,8 @@ class AddConsuptionsToCounters < ActiveRecord::Migration
     add_column :counters, :prev_warm_consumption, :integer
 		add_column :counters, :prev_cold_consumption, :integer
 
-		add_index :counters, :date, unique: true
+    add_column :counters, :year, :integer
+
+    add_index :counters, :date, unique: true
   end
 end
