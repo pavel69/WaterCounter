@@ -1,17 +1,19 @@
 class Counter < ActiveRecord::Base
 
   has_one :next_counter, :class_name => 'Counter',
-          :foreign_key => "prev_id",
+          :foreign_key => 'prev_id',
           :inverse_of => :prev_counter
 
   belongs_to :prev_counter, :class_name => 'Counter',
-             :foreign_key => "prev_id",
+             :foreign_key => 'prev_id',
              :inverse_of => :next_counter
 
   validates :date, :warm, :cold, presence: true
 	validate :validate_calculations
 
   scope :earlier_than, lambda { |date| where('date < ?',  date).order('date') }
+  scope :years, lambda { select('year').group('year') }
+  scope :year, lambda { |year| where(:year => year) }
 
   before_validation :recalc
 
@@ -53,6 +55,10 @@ class Counter < ActiveRecord::Base
 								, prev_counters_counters.cold_consumption as prev_cold_consumption')
 			.order('counters.date desc')
 	end
+
+  def self.get_chart_array
+    where('id > 2').order(:date).pluck(:date, :warm_consumption, :cold_consumption).map{|d,w,c| [d.advance(:months => -1).to_time(:utc).to_i*1000, w, c]}
+  end
 
   def show
   end

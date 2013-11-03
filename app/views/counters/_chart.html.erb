@@ -1,0 +1,57 @@
+<%
+   chart_data = Counter.get_chart_array
+%>
+<script type="text/javascript">
+    Highcharts.setOptions({
+        lang: {
+            shortMonths: ['янв', 'фев', 'мар', 'апр', 'май', 'июн',
+                'июл', 'авг', 'сен', 'окт', 'ноя', 'дек']
+        }
+    });
+
+    $(function () {
+        $('#chart').highcharts({
+            chart: {
+                type: 'spline'
+            },
+            title: {
+                text: 'Расход воды'
+            },
+            xAxis: {
+                type: 'datetime',
+                tickInterval: 24 * 3600 * 1000 *30 * 4,
+                tickmarkPlacement: 'on',
+                gridLineWidth: 1,
+                gridLineDashStyle: 'dot',
+                dateTimeLabelFormats: {
+                    month: '%b %y',
+                    year: '%Y'
+                }
+            },
+            yAxis: {
+                gridLineWidth: 0,
+                title: {
+                    text: 'Расход (м3)'
+                },
+                min: 0
+            },
+            tooltip: {
+                formatter: function() {
+                    return '<b>'+ this.series.name +'</b><br/>'+
+                            Highcharts.dateFormat('%e %b %Y', this.x) +': '+ this.y +' m';
+                }
+            },
+
+            series: [{
+                name: 'горячая',
+                color: 'red',
+                data: <%= chart_data.map{|d,w,c| [d,w]} %>
+            }, {
+                name: 'холодная',
+                color: 'blue',
+                data: <%= chart_data.map{|d,w,c| [d,c]} %>
+            }]
+        });
+    });
+</script>
+<div id="chart" style="width: 100%; height: 300px;"></div>
