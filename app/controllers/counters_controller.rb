@@ -4,7 +4,11 @@ class CountersController < ApplicationController
   # GET /counters
   # GET /counters.json
   def index
-    @counters = Counter.all.order("date desc")
+    @years = Counter.years
+
+    params[:year] ||= @years[0].year
+
+    @counters = Counter.year(params[:year]).order('date desc')
   end
 
   # GET /counters/1

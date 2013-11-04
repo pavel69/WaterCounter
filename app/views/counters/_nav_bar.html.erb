@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="btn-group">
+    <%= link_to 'Новый месяц', new_counter_path, :class => "btn btn-primary" %>
+  </div>
+
+  <div class="pull-right">
+
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        <%= params[:year] %>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu pull-right" role="menu">
+        <%= render partial: 'year', collection: @years %>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+

@@ -4,14 +4,14 @@
 
 <%= render 'chart' %>
 
-<%= link_to 'Новый месяц', new_counter_path, :class => "btn btn-primary" %>
+<%= render 'nav_bar' %>
 
 <table class="counters-list table table-striped">
   <thead>
     <tr>
-      <th><%= Counter.human_attribute_name("date") %></th>
-      <th class="warm"><%= Counter.human_attribute_name("warm") %></th>
-      <th class="cold"><%= Counter.human_attribute_name("cold") %></th>
+      <th><%= Counter.human_attribute_name('date') %></th>
+      <th class="warm"><%= Counter.human_attribute_name('warm') %></th>
+      <th class="cold"><%= Counter.human_attribute_name('cold') %></th>
       <th></th>
     </tr>
   </thead>

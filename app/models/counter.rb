@@ -12,7 +12,7 @@ class Counter < ActiveRecord::Base
 	validate :validate_calculations
 
   scope :earlier_than, lambda { |date| where('date < ?',  date).order('date') }
-  scope :years, lambda { select('year').group('year') }
+  scope :years, lambda { select('year').group('year').order('date desc') }
   scope :year, lambda { |year| where(:year => year) }
 
   before_validation :recalc
