@@ -21,5 +21,15 @@ ready = ->
 
   $('[data-behaviour~=datepicker]').datepicker({format: 'dd.mm.yyyy', language: 'ru'});
 
+  $('#test').each ->
+    $.ajax(url: "/counters/test")
+
+  #for x in $("a[data-remote]")
+  #  alert x.href
+  #a['data-remote']
+
+  #$.ajax(url: "/counters/test")
+
+
 $(document).ready(ready)
 $(document).on('page:load', ready)

@@ -1,8 +1,20 @@
+
 <div class="page-header">
   <h1>Показания счетчиков</h1>
 </div>
 
 <%= render 'chart' %>
+
+<div>
+<%= link_to 'test', { controller: 'counters', action: :test }, remote: true %>
+
+  <%= link_to 'test2', counters_test_path(), remote: true %>
+
+</div>
+
+<div id="test">
+   <p>ssssss</p>
+</div>
 
 <%= render 'nav_bar' %>
 
@@ -20,3 +32,6 @@
     <%= render @counters %>
   </tbody>
 </table>
+
+<% javascript_tag do %>
+<% end %>

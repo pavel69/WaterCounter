@@ -1,7 +1,13 @@
 WaterCounter::Application.routes.draw do
-  resources :counters
+  resources :counters do
+  collection do
+    get :test
+  end
+end
 
   root 'counters#index'
+
+  get 'counters/test'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

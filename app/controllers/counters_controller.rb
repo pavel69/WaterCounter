@@ -11,6 +11,14 @@ class CountersController < ApplicationController
     @counters = Counter.year(params[:year]).order('date desc')
   end
 
+  def test
+
+    respond_to do |format|
+      format.js { render :layout=>false }
+    end
+  end
+
+
   # GET /counters/1
   # GET /counters/1.json
   def show
