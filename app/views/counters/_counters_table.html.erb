@@ -1,0 +1,14 @@
+<table class="counters-list table table-striped">
+  <thead>
+  <tr>
+    <th><%= Counter.human_attribute_name('date') %></th>
+    <th class="warm"><%= Counter.human_attribute_name('warm') %></th>
+    <th class="cold"><%= Counter.human_attribute_name('cold') %></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <%= render @counters %>
+  </tbody>
+</table>

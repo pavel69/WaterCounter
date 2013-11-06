@@ -1,3 +1,4 @@
+
 <div class="page-header">
   <h1>Показания счетчиков</h1>
 </div>
@@ -6,17 +7,12 @@
 
 <%= render 'nav_bar' %>
 
-<table class="counters-list table table-striped">
-  <thead>
-    <tr>
-      <th><%= Counter.human_attribute_name('date') %></th>
-      <th class="warm"><%= Counter.human_attribute_name('warm') %></th>
-      <th class="cold"><%= Counter.human_attribute_name('cold') %></th>
-      <th></th>
-    </tr>
-  </thead>
+<div id="counters_table" class="container">
+</div>
 
-  <tbody>
-    <%= render @counters %>
-  </tbody>
-</table>
+
+<!--%= render 'counters_table' %-->
+
+
+<% javascript_tag do %>
+<% end %>

@@ -12,8 +12,9 @@ class Counter < ActiveRecord::Base
 	validate :validate_calculations
 
   scope :earlier_than, lambda { |date| where('date < ?',  date).order('date') }
-  scope :years, lambda { select('year').group('year').order('date desc') }
-  scope :year, lambda { |year| where(:year => year) }
+  scope :data, lambda { where('id > 2') }
+  scope :years, lambda { select('year').data.group('year').order('date desc') }
+  scope :year, lambda { |year| data.where(year: year) }
 
   before_validation :recalc
 
@@ -57,7 +58,7 @@ class Counter < ActiveRecord::Base
 	end
 
   def self.get_chart_array
-    where('id > 2').order(:date).pluck(:date, :warm_consumption, :cold_consumption).map{|d,w,c| [d.advance(:months => -1).to_time(:utc).to_i*1000, w, c]}
+    data.order(:date).pluck(:date, :warm_consumption, :cold_consumption).map{|d,w,c| [d.advance(:months => -1).to_time(:utc).to_i*1000, w, c]}
   end
 
   def show

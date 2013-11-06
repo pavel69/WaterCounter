@@ -4,12 +4,21 @@ class CountersController < ApplicationController
   # GET /counters
   # GET /counters.json
   def index
-    @years = Counter.years
+    #params[:year] ||= Counter.years[0].year
+    #
+    #@counters = Counter.year(params[:year]).order('date desc')
+  end
 
-    params[:year] ||= @years[0].year
+  def table
+    params[:year] ||= Counter.years[0].year
 
     @counters = Counter.year(params[:year]).order('date desc')
+
+    respond_to do |format|
+      format.js { render :layout=>false }
+    end
   end
+
 
   # GET /counters/1
   # GET /counters/1.json
