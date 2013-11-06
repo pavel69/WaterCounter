@@ -1,1 +1,0 @@
-$('#test').html "<h1>RESULT</h1>"
