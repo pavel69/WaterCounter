@@ -10,6 +10,8 @@ ru:
     attributes:
          counter:
            warm: Горячая
+           cold: Холодная
+           date: Дата
 
   helpers:
     submit:
