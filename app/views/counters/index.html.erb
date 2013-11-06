@@ -5,33 +5,14 @@
 
 <%= render 'chart' %>
 
-<div>
-<%= link_to 'test', { controller: 'counters', action: :test }, remote: true %>
-
-  <%= link_to 'test2', counters_test_path(), remote: true %>
-
-</div>
-
-<div id="test">
-   <p>ssssss</p>
-</div>
-
 <%= render 'nav_bar' %>
 
-<table class="counters-list table table-striped">
-  <thead>
-    <tr>
-      <th><%= Counter.human_attribute_name('date') %></th>
-      <th class="warm"><%= Counter.human_attribute_name('warm') %></th>
-      <th class="cold"><%= Counter.human_attribute_name('cold') %></th>
-      <th></th>
-    </tr>
-  </thead>
+<div id="counters_table" class="container">
+</div>
 
-  <tbody>
-    <%= render @counters %>
-  </tbody>
-</table>
+
+<!--%= render 'counters_table' %-->
+
 
 <% javascript_tag do %>
 <% end %>

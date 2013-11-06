@@ -1,1 +1,1 @@
-<li><%= link_to year.year, params.merge({ year: year.year}) %></li>
+<li><%= link_to year.year, counters_table_path(params.merge({ year: year.year})), remote: true %></li>
