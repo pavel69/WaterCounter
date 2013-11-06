@@ -1,13 +1,17 @@
-<div class="show">
+<div class="show col-md-11">
 
 <p class="top1">Согласовано ЕИРЦ</p>
 <h1>Ведомость показаний квартирных приборов учета воды</h1>
 <h2>за период с <%= l @counter.prev_counter.date.to_date, :format => :long %> по <%= l @counter.date.to_date, :format => :long %></h2>
-<p>Плательщик:  Фатеева И. И. телефон: 338-5428</p>
-<p>Проживающий по адресу: г.Москва, ул.Островитянова 16-2-75
-</p>
-<p class="date1">Дата: <%= l @counter.date.to_date, :format => :long %></p>
-
+  <div class="row">
+    <div class="col-md-8">
+        <p>Плательщик:  Фатеева И. И. телефон: 338-5428</p>
+        <p>Проживающий по адресу: г.Москва, ул.Островитянова 16-2-75</p>
+    </div>
+    <div class="col-md-4">
+        <p class="date1">Дата: <%= l @counter.date.to_date, :format => :long %></p>
+    </div>
+  </div>
 <table>
   <tr><th colspan="3">Показания счетчика холодной воды</th><th colspan="3">Показания счетчика горячей воды</th></tr>
   <tr>
@@ -36,8 +40,8 @@
 
 
 <ul class="pager">
-    <li><%= link_to 'Back', counters_path %></li>
-    <li><%= link_to 'Edit', edit_counter_path(@counter) %></li>
+    <li><%= link_to I18n.t('helpers.labels.back'), counters_path %></li>
+    <li><%= link_to I18n.t('helpers.labels.edit'), edit_counter_path(@counter) %></li>
 </ul>
 
 </div>
