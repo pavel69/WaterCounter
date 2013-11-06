@@ -1,6 +1,5 @@
-<h1>Editing counter</h1>
+<h1>Исправление месяца</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @counter %> |
-<%= link_to 'Back', counters_path %>
+<%= link_to I18n.t('helpers.labels.back'), counters_path %>

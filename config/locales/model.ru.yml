@@ -16,3 +16,6 @@ ru:
       create: Новые %{model}
       submit: Сохранить %{model}
       update: Сохранить %{model}
+    labels:
+      back: Вернуться к таблице
+      edit: Редактировать
